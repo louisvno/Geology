@@ -1,0 +1,40 @@
+#navwork {
+    
+    font-family: "Calibri";
+    color: rgb(62,62,62);
+    width:100%;
+    max-height:160px;
+    background-color:darkseagreen ;
+    overflow:auto;
+  }
+
+
+  #navwork a {
+    float:left;
+    font-size:14pt;
+    width:25%;
+    min-width: 150px;
+    height: 30px;
+    padding-top: 4px;
+    text-align:center;
+    background-color:#3cb363 ;
+ }
+
+
+
+#navwork a.active {
+     background-color: #e2dfb7 ;
+    color: black;
+}
+
+#navwork a:hover:not(.active) {
+    background-color:#b3673c ;
+    color:white;
+}
+    
+@media only screen and (max-width: 768px) {
+    #navwork a {
+        width:100%;
+    } 
+    
+}

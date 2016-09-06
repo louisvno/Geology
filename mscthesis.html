@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning CSS</title>
+<link rel="stylesheet" type="text/css" href="styles\style.css">
+<link rel="stylesheet" type="text/css" href="styles\msc.css">
+<link rel="stylesheet" type="text/css" href="styles\navwork.css">
+</head>
+
+<body>
+
+<div id="supermain">
+
+    <div id="left-menu" class="menu">
+    <ul class="mainmenu">
+      <li><a href="index.html">home</a></li>
+     <li><a href="aboutme.html">about me</a></li>
+     <li><a href="mywork.html">work</a></li>
+     <li><a href="contact.html">contact</a></li>
+     <li><a href="links.html">links</a></li>
+
+    </ul>
+</div>
+
+
+    <div id="mainmsc">
+        
+    <div id="menu-icon" onclick="dropdown()">
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    </div>
+    
+    <img id="cuesta" src="Images\banner_img\cuesta1000px.jpg">
+     
+        
+    <div id="navwork">
+    <a href="bscthesis.html">BSc Thesis</a>
+    <a class="active" href="mscthesis.html">MSc Thesis</a>
+    <a href="fieldwork.html">Fieldwork</a>
+    <a href="progmod.html">Programming</a>
+    </div>
+
+    <div class="work-article"> 
+        <h2 class="h2work">Controls on syn-kinematic sedimentation in an asymmetrical extensional basin, Sorbas basin SE-Spain</h2>
+        <hr>
+        <p>Intro</p>
+        <p>
+          Asymmetrical extensional basins are often associated with large-scale footwall exhumation.
+          The sediment supply from this footwall is controlled by tectonics controlling relief (slope)
+          and rejuvenating the source area as well as climate, controlling precipitation and weathering rates.
+          Contemporaneously, tectonics and climate control base-level fluctuations in the hanging-wall. Thus
+          both supply and accommodation-space are expected to be strongly controlled by tectonics and/or climate
+          during active extension. 
+            
+        We aim to improve the understanding of how this balance between tectonics and
+          climate affects the distribution of facies in the basin and how it evolves trough time during active extension.
+          The Sorbas basin (SE Spain) is such a basin located in the hangingwall of an extensional detachment with a marked
+          asymmetric architecture and it's Tortonian sequence is believed to have been deposited during this extension. 
+            
+        </p>
+        <p>Setting</p>
+        <p>
+        Opening of the <a href="https://en.wikipedia.org/wiki/Sorbas_basin">Sorbas basin</a> took place with the onset of coarse fluvial to shallow marine conglomerates which can be found outcropping in the east of the basin. The deposits are believed to be of Latest Serravallian to Early Tortonian age. This was followed by a rapid transgression that led to the deposition of a deep-water turbiditic system.  During the latest Tortonian platform carbonates (Azagador formation) were deposited in the basin during rapid progradation, its base being locally dated at 7.5Ma. This unit is outcropping along an East-West trending cuesta throughout the basin. The shallow marine carbonates grade upward and laterally into marls of the Messinian Abad formation. 
+        </p>
+
+
+        <p>Methods</p>
+        <p>
+          In order to study the link between controls, high resolution sequence stratigraphy and structural
+          analysis is performed on the syn-kinematic Tortonian deep-water sequence in order to capture the cycles of different scales.</p>
+            
+            <p>The combined kinematic and sedimentological analysis of the southern part of the Sorbas basin was performed by the means of a high-resolution profile. The ~2 km long profile extends from the base of the Latest <a href="https://en.wikipedia.org/wiki/Tortonian" >Tortonian</a> carbonate-platform unit until the present southern basin margin, where a large transpressional fault zone is currently bounding the basinfill. Because the strata were tilted between 40 and 80 degrees after deposition, a lithostratigraphic column of the basin can be obtained for most of the Tortonian evolution of the Sorbas basin. </p>
+            <p>
+            The kinematic mapping involved measurements of fault kinematics, including fault planes and kinematic indicators, such as slickensides, Riedel fractures, drag-folds and conjugate faults. Because a significant number of faults were tilted after their formation, bedding measurements were used to analyze and restore them to their original spatial position. 
+                </p>
+            <p>
+            The aim of the sequence stratigraphic and sedimentological analysis was to correlate the kinematic deformation with the response of sedimentation in the basin. This was achieved by mapping facies units that were subsequently grouped in facies associations and the definition of sedimentological environments. Each facies unit (or type) has its characteristic layer size, grainsize, lithology and internal structures which show similar properties.
+            </p>
+            
+        <img id="t49" src="Images/msc/Picture1.png">
+         
+        <p>Conclusions</p>
+        
+        <p>  
+        The boundary between the turbidites and the carbonate platform deposits has been interpreted as a facies limit rather than an unconformity. Extension might have lasted longer than previously thought as syn-kinematic faulting has been witnessed up to and into the carbonate platform facies. It is therefore proposed that the inversion of the basin is not Late Tortonian but probably Upper Messinian.
+        </p> 
+        
+        <p> 
+        Large scale (multiple 100s of meters) non-cyclical facies changes were mainly influenced by changes in the source area induced by tectonics and changes in the slope gradient. Smaller scale (20-150m) changes in facies show a tectonic signature
+        in the first part of the basin fill while toward the end of the Tortonian climate likely controlled the sediment supply
+        to the basin. The smallest scale cycles (meter scale) that could be distinguished were observed along syn-depositional
+        faults, likely relate to activity on the main fault.
+        </p>
+        
+        
+        
+    </div>
+    
+</div>
+
+</div>
+
+<script>
+    var count=0;
+        
+    function dropdown(){
+    var y=document.getElementsByClassName("menu");
+    y[0].classList.toggle("disable");
+        }
+    
+    </script>
+        
+    
+</body>
+
+</html>

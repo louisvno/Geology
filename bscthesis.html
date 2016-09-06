@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<title>Learning CSS</title>
+<link rel="stylesheet" type="text/css" href="styles\style.css">
+<link rel="stylesheet" type="text/css" href="styles\bsc.css">
+<link rel="stylesheet" type="text/css" href="styles\navwork.css">
+</head>
+
+<body>
+
+<div id="supermain">
+    
+    
+    
+<div id="left-menu" class="menu">
+    <ul class="mainmenu">
+      <li><a href="index.html">home</a></li>
+     <li><a href="aboutme.html">about me</a></li>
+     <li><a href="mywork.html">work</a></li>
+     <li><a href="contact.html">contact</a></li>
+     <li><a href="links.html">links</a></li>
+    </ul>
+</div>
+
+
+<div id="mainbsc">
+    
+    <div id="menu-icon" onclick="dropdown()">
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    </div>
+    
+<img id="clino" src="Images\banner_img\clino.jpg">
+
+
+<div id="navwork">
+    <a class="active" href="bscthesis.html">BSc Thesis</a>
+    <a href="mscthesis.html">MSc Thesis</a>
+    <a href="fieldwork.html">Fieldwork</a>
+    <a href="progmod.html">Programming</a>
+</div>
+    
+    <div class="work-article">
+        <h2 class="h2work">The influence of variations in excess density in hyperpycnal flows on the foreset angle of a delta</h2>
+        <hr>
+        <p>Intro </p> 
+        <p>
+        Hyperpycnal flows occur where the density of river water is larger than the reservoir it flows out in. They are an important mechanism of sediment deposition on delta slopes. In this study, the focus lies on investigating the influence of these flows on the <a>foreset</a> angle of the delta. </p>
+        
+        <p>Methods </p>  
+        
+        <p>The experiments were conducted in a narrow flume tank. In this tank, a delta was simulated at  small scale with a river flowing out into a larger resevoir. Both salt and clay were used to create excess density in the incoming flow (the river).</p>
+        <img id="setup" src="Images/bscscriptie/Finalc.png" > 
+        
+        <p>Conclusions </p>
+        
+        <p>From the experiments it could be concluded that hyperpycnal flows influence the angle of the foreset delta; with increasing excess density, the foreset slope will decrease linearly. A reduction in foreset angle from the angle of repose of 32° to 20.7° was achieved, a decrease of 35%. For the same density at the inflow as salt, the clay is able to reduce the foreset angle to a lesser degree. </p> 
+        
+        <p> The hyperpycnal flows generated in these experiments were not able to transport the sand in suspension and deposit it downslope. The transportation as bedload after the establishment of the new equilibrium slope is also unlikely.
+        </p>
+           
+    </div>
+    
+    
+    </div>
+
+</div>
+<script>
+    var count=0;
+        
+    function dropdown(){
+    var y=document.getElementsByClassName("menu");
+    y[0].classList.toggle("disable");
+        }
+    
+</script>
+</body>
+
+</html>

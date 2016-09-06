@@ -1,0 +1,35 @@
+#mainbsc{
+    margin-left:200px;
+    background-color: #e2dfb7;
+    overflow:hidden;
+    height:2000px;
+}
+
+#clino{
+    display:block;
+    height:300px;
+    width:1000px;
+}
+
+#setup{
+    display:block;
+    margin-left:5%;
+    margin-right:5%;
+    max-width:80%;
+    height:auto;
+    border: 1px solid dimgrey;
+}
+
+@media only screen and (max-width: 768px) {
+    
+    #mainbsc{
+   margin-left:0px;
+    }
+    
+      #clino{
+        width:100%;
+        height:auto;
+    }
+  
+    
+}

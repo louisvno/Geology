@@ -1,0 +1,364 @@
+html {
+    overflow-y: scroll;
+}
+body{background-color: dimgrey;
+    margin: 0 ;
+}
+
+#supermain{
+    max-width:1200px;
+    min-width:800px;
+    margin:auto;
+}
+.menu {
+    float:left;
+    background-color: rgb(211,180,162);
+    width: 200px;
+    position: fixed;
+    height:100%;
+}
+
+a { text-decoration: none;
+    color: inherit; }
+
+ul.mainmenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-family: "Calibri";
+    color: rgb(62,62,62);
+    font-size: 22pt;
+    margin-top:200px;
+
+}
+
+#left-menu li{
+    margin-bottom: 30px;
+    text-align:left;
+    padding-left: 40px;
+}
+
+#left-menu li:hover {
+        color:#e2e2e2;
+    }
+
+.menu.disable {
+  display:block;   
+}
+
+/* end of leftmenu */
+
+#main{
+   margin-left:200px;
+
+}
+
+#intro{
+    width:100%;
+    }
+
+#intro .left{
+    height:500px;
+    min-width:500px;
+    padding:0;
+    float:left;
+    background-image: url("../Images/index_img/red_cliff_bg500.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-color:#e2e2e2;
+    overflow:hidden;
+    background-position: center
+}
+
+.right{
+    
+    margin:0;
+    padding:0;
+    width:auto;
+    margin-left:500px; 
+    overflow:auto;
+    
+}
+
+#cliff {
+height:auto;
+max-height:500px; 
+width:100%;
+max-width:500px;
+margin:auto;
+display:block;
+visibility:hidden;
+   
+/*opacity:0.0;*/
+/*transition: opacity 5s;*/
+
+}
+
+/*#cliff:hover{
+    opacity:1.0;
+    transition: opacity .3s ease-out;
+}*/
+
+#this{
+    /*text-decoration: underline;*/
+    cursor:pointer;
+    
+    
+}
+
+#first {
+    width:100%;
+    height :250px;
+    clear:left;
+}
+#first .left{
+    height:250px;
+    width:500px;
+    margin:0;
+    padding:0;
+    float:left;
+}
+    
+#section-louis {
+    background-color:#e2dfb7;
+    height:130px;
+    font-family: "Calibri";
+    overflow:auto;
+   
+        
+}
+
+#section-crazy {
+    background-color: #b3673c ;
+    height:370px;
+    font-family: "Calibri";
+    overflow:auto;  
+}
+
+#section-crazy span:hover{color:rgb(62,62,62);}
+
+.thinking{
+    color:#e2e2e2;
+    font-size: 20pt;
+    margin:30px 0 0 10%;
+}
+
+#crazy{
+    font-size: 16pt;
+    color: rgb(62,62,62);
+    margin:30px 0 0 10%;
+}
+
+h1{
+    font-weight: normal;
+    color: rgb(62,62,62);
+    font-size:40pt;
+    word-spacing: 20px;
+    margin:30px 0px 0px 10%;
+}
+
+#first a{
+    font-weight: normal;
+    color: rgb(62,62,62);
+    font-size:30pt;
+    font-family: "Calibri";
+    margin:0 0 0 10%;
+    line-height: 2.0;}
+
+#section-aboutme{
+    width:100%;
+    height:250px;
+    background-color:  #9597a2;
+    background-image: url("../Images//index_img/profilepic.png");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    
+}
+#section-aboutme a:hover{
+    color:#e2e2e2;
+}
+#section-mywork{
+    height:125px;
+    overflow:auto;
+    background-color:#e2dfb7;
+}
+#section-mywork a:hover{
+    color:#b3673c;
+}
+#section-contact{
+    height:125px;
+    overflow:auto;
+    background-color:#3cb363;
+
+}
+#section-contact a:hover{
+    color:#e2e2e2;
+}
+#section-links{
+    height:400px;
+    width:100%;
+    background-color:#e2e2e2;
+    overflow:auto;
+    clear:left; 
+    
+ }
+#section-links a{
+    font-weight: normal;
+    color: rgb(62,62,62);
+    font-size:30pt;
+    font-family: "Calibri";
+    margin-left:50px;
+    line-height: 2.0;
+    
+    
+}
+#section-links a:hover{
+    color:#3cb363;
+}
+footer{
+  background-color: #e2e2e2;
+}
+
+span{
+    border: 1px dashed #e2e2e2;
+}
+
+
+.work-article{
+    margin-left:5%;
+    margin-right:5%;
+    background-color: beige;
+    margin-top:30px;
+    padding-bottom: 20px;
+    padding-top:20px;
+}
+
+.h2work{
+    font-size: 18pt;
+    display:block;
+    font-family: "Calibri";
+    color: rgb(62,62,62);
+    padding-left: 5%;
+    padding-right:5%;  font-weight: normal;    
+}
+
+hr{
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.work-article p{
+    margin-left:5%;
+    margin-right:5%;
+    font-family: "Calibri";
+    
+}
+
+.work-article a{
+ text-decoration: underline;
+color:  #b3673c
+}
+
+#menu-dropdown{
+        display:none;
+    background-color: rgb(211,180,162);}
+
+
+@media only screen and (max-width: 768px){
+
+  
+.menu{
+        position:static;
+        float: none;
+        width:100%;
+        padding-top:50px;
+        display:none;
+           }
+.menu.disable {
+    display:block;
+        }
+        
+#left-menu li{
+    text-align:center;
+    height:34px;
+    margin:0;
+    padding-left: 0;
+    }
+    
+ul.mainmenu {
+    font-size: 14pt;
+    margin-top:0px;
+    }   
+#supermain{
+    width:100%;
+    min-width:0;
+    }
+    
+#main{
+    margin-left:0px;
+
+    }
+  
+#intro .left{
+        float:none;
+        width:100%;
+        min-width:200px;
+        height:auto;
+    }
+#first{
+        height:500px;
+    }
+#first .left{
+        width:100%;
+        float:none;
+       }
+    
+.right{
+        width:100%;
+        margin-left:0;
+       }
+#section-mywork{
+        width:100%;
+    }
+#section-louis{
+        display:none;
+    }
+    
+#section-links a{
+        margin-left: 10%
+    }
+#section-aboutme{
+     width:100%;
+    background-size: 150px 150px;
+          
+    }
+    
+.work-article{
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+    margin-bottom:10px;
+    
+    }
+    
+/*menu icon for small screens*/
+#menu-icon{
+    height:45px;
+    width: 46px;
+    position:absolute;
+    opacity: 1.3;
+    top:10px;
+    left: 10px;
+    }
+.icon-bar{
+    width: 35px;
+    height: 4px;
+    background-color: white;
+    margin-top:6px;
+    padding:0px;
+    margin-left:auto;
+    margin-right:auto;
+    }
+}
+
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<title>Learning CSS</title>
+<link rel="stylesheet" type="text/css" href="styles\style.css">
+<link rel="stylesheet" type="text/css" href="styles\progmod.css">
+<link rel="stylesheet" type="text/css" href="styles\navwork.css">
+</head>
+
+<body>
+
+<div id="supermain">
+    <div id="left-menu" class="menu">
+    <ul class="mainmenu">
+      <li><a href="index.html">home</a></li>
+     <li><a href="aboutme.html">about me</a></li>
+     <li><a href="mywork.html">work</a></li>
+     <li><a href="contact.html">contact</a></li>
+     <li><a href="links.html">links</a></li>
+
+    </ul>
+</div>
+
+<div id="mainprogmod">
+ 
+<div id="menu-icon" onclick="dropdown()">
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+</div>
+    
+<img id="code" src="Images\banner_img\code.jpg">
+
+    <div id="navwork">
+    <a href="bscthesis.html">BSc Thesis</a>
+    <a href="mscthesis.html">MSc Thesis</a>
+    <a href="fieldwork.html">Fieldwork</a>
+    <a class="active" href="progmod.html">Programming</a>
+    </div>
+    
+  
+
+<div class="work-article">
+    <h2 class="h2work">Delta model</h2>
+    <hr>
+    <p>Language: Matlab</p>
+    <p>This model I built for a course at the uni. It is a model to calculate the distance of delta
+    progradation over time. The main goal was to study/predict the effect of sediment supply on the progradation rate.
+    The main variable is the sediment supply. The model simplyfies the delta shape as cylinder segments with height dy and radiuses to for the cone shape of the delta.
+    It then calculates the time it takes to fill a new volume of a progradation step. The bathymetry was also implemented in the model.
+
+    </p><p><a href="codedelta.html">See code</a></p>
+</div>
+    
+    
+<div class="work-article">
+    
+    <h2 class="h2work">Stockchart program</h2>
+    <hr>
+    <p>Language: Matlab</p>
+    
+    <p>
+    One of my hobbies is to follow the stock martkets. I wanted to have historical data
+    but being Dutch, I didn't want to pay for it. There are lot of free sources for end of day data but it is hard to get a nice database.
+    So I found this great script from <a href="http://www.luminouslogic.com">Luminouslogic.com</a>. to pull data from Yahoo Finance and I created a program around this to make an automated database.</p>
+
+    <p> The idea is that when you run the code, it searches
+    the last date recorded in the database. If this is not equal to  the most recent date available on Yahoo Finance, it gets the updates of the
+    daily stock data from Yahoo Finance until the most recent date and adds them to the database (textfile). This file i can then load
+    into my stockchart programm et voila i have free end of day data that is easy to update just by running the program.
+    
+    </p><p><a href="codestockchart.html">See code</a></p>
+    
+</div>
+    
+
+<div class="work-article">
+    <h2 class="h2work">This website</h2>
+    <hr>
+    <p>
+    I designed this website in Photoshop and then coded it with HTML CSS and Javascript. The coding I learned from youtube and other internet resources such as <a href="http://www.w3schools.com">w3schools.com</a>.
+    </p>
+</div>
+    
+</div>
+
+</div>
+    
+<script>
+    var count=0;
+        
+    function dropdown(){
+    var y=document.getElementsByClassName("menu");
+    y[0].classList.toggle("disable");
+        }
+    
+</script>
+</body>
+
+</html>

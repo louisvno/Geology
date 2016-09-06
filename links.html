@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<title>Learning CSS</title>
+<link rel="stylesheet" type="text/css" href="styles\style.css">
+<link rel="stylesheet" type="text/css" href="styles\links.css">
+</head>
+
+<body>
+
+<div id="supermain">
+    <div id="left-menu" class="menu">
+    <ul class="mainmenu">
+      <li><a href="index.html">home</a></li>
+     <li><a href="aboutme.html">about me</a></li>
+     <li><a href="mywork.html">work</a></li>
+     <li><a href="contact.html">contact</a></li>
+     <li><a href="links.html">links</a></li>
+
+    </ul>
+</div>
+
+
+<div id="mainlinks">
+   
+    <div id="menu-icon" onclick="dropdown()">
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    </div>
+    
+    <div id="insertimg">Working on it...</div>
+    <a href="http://www.sepmstrata.org">SEPM strata</a>
+    <a href="http://www.w3schools.com/">W3C schools</a>
+
+
+</div>
+
+</div>
+<script>
+    var count=0;
+        
+    function dropdown(){
+    var y=document.getElementsByClassName("menu");
+    y[0].classList.toggle("disable");
+        }
+    
+</script>
+</body>
+
+</html>

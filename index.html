@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >  
+<title>Learning CSS</title>
+<link rel="stylesheet" type="text/css" href="styles\style.css">
+</head>
+
+<body>
+
+<div id="supermain">
+    <div id="left-menu" class="menu">
+    <ul class="mainmenu">
+         <li><a href="index.html">home</a></li>
+        <li><a href="aboutme.html">about me</a></li>
+        <li><a href="mywork.html">work</a></li>
+        <li><a href="contact.html">contact</a></li>
+        <li><a href="links.html">links</a></li>
+
+    </ul>
+</div>
+
+<div id="main">
+    <div id="menu-icon" onclick="dropdown()">
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    </div>
+    
+<div id="intro">
+    
+    <div class="left" onclick="overlayon()">
+    <img id="cliff" src="Images\index_img\red_cliff_overlay500.png" >
+    </div>
+    
+    <div class="right">
+        
+        <div id="section-louis">
+        <h1>I'm Louis</h1>
+        </div>
+        
+        <div id="section-crazy">
+    
+         <p class="thinking">when I look at this cliff...<br>
+                  <span id="this" onclick="overlayon()">click here</span> to see what I'm thinking</p>
+
+        <p id="crazy">( I'm not crazy, I'm a Geologist! )</p> 
+            <p class="thinking"> <span id="this" onclick="overlayoff()">click here</span> to return to normal people view</p>
+            
+        </div>
+        
+    </div>
+    
+    
+</div>
+    
+<div id="first">
+    <div class="left">
+        <div id="section-aboutme">
+        <a href="aboutme.html">about me</a>
+      
+        </div>
+    </div>
+    
+    <div class="right">
+        <div id="section-mywork">
+        <a href="mywork.html">my work</a>
+        </div>
+
+        <div id="section-contact">
+        <a href="contact.html">contact</a>
+        </div>
+    </div>
+</div>
+
+    
+<div id="section-links">
+    <a href="links.html">links</a>
+    </div>
+
+    <footer>
+      	&copy; Louis vN
+    </footer>
+</div>
+</div>
+    
+    
+<script>
+    var yobro = document.getElementById('cliff');
+    
+    function overlayon(){
+        yobro.style.visibility = "visible";
+    }
+    
+      function overlayoff(){
+        yobro.style.visibility = "hidden";  
+    }
+       
+</script>
+
+<script>
+    var count=0;
+        
+    function dropdown(){
+    var y=document.getElementsByClassName("menu");
+    y[0].classList.toggle("disable");
+        }
+    
+    </script>
+        
+    
+</body>
+
+</html>

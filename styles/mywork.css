@@ -1,0 +1,76 @@
+#main-mywork{
+  margin-left:200px;
+  background-color: #e2dfb7;
+}
+
+#main-mywork a{font-weight: normal;
+    color: rgb(62,62,62);
+    font-size:30pt;
+    font-family: "Calibri";
+    margin:0 0 0 10%;
+    line-height: 2.0;
+    }
+
+#pic{
+  height:130px;
+    background-color: #3980d4
+}
+
+#bscthesis{
+  background-color: #b3673c;
+  float: left;
+  height:200px;
+  width:50%;
+
+}
+
+#mscthesis {
+  background-color: #e2dfb7;
+  height:200px;
+  width:50%;
+  overflow: auto;
+}
+
+#fw {
+  background-color: #9597a2;
+  height:200px;
+  width:50%;
+  float: left;
+}
+
+#model {
+  background-color: #3cb363;
+  height:200px;
+  width:50%;
+  overflow: auto;
+}
+#hammer{
+  float:left;
+  max-width: 100%;
+}
+
+#bscthesis a:hover{
+    color:#e2e2e2;    
+}
+#mscthesis a:hover{
+    color:#b3673c;    
+}
+#fw a:hover{
+   color: #e2e2e2;
+}
+#model a:hover{
+    color:#e2dfb7;
+}
+
+@media only screen and (max-width: 768px) {
+  
+    
+  #main-mywork{
+   margin-left:0px;
+    }
+    #main-mywork a{
+    font-size:24pt;
+    
+    }
+    
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<title>Learning CSS</title>
+<link rel="stylesheet" type="text/css" href="styles\style.css">
+<link rel="stylesheet" type="text/css" href="styles\mywork.css">
+</head>
+
+<body>
+
+<div id="supermain">
+    <div id="left-menu" class="menu">
+    <ul class="mainmenu">
+      <li><a href="index.html">home</a></li>
+     <li><a href="aboutme.html">about me</a></li>
+     <li><a href="mywork.html">work</a></li>
+     <li><a href="contact.html">contact</a></li>
+     <li><a href="links.html">links</a></li>
+
+    </ul>
+</div>
+
+
+<div id="main-mywork">
+ 
+    <div id="menu-icon" onclick="dropdown()">
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    </div>
+    
+    
+    <img id="hammer" src="Images\banner_img\hammer.jpg">
+
+
+
+  <div  id="bscthesis">
+    <a href="bscthesis.html">BSc Thesis</a>
+
+    </div>
+
+  <div  id="mscthesis">
+    <a href="mscthesis.html">MSc Thesis</a>
+
+      </div>
+
+  <div  id="fw">
+    <a href="fieldwork.html">Fieldwork</a>
+
+      </div>
+
+  <div  id="model">
+    <a href="progmod.html">Programming</a>
+
+    </div>
+      <div id="section-links">
+         
+          
+          </div>
+</div>
+</div>
+<script>
+    var count=0;
+        
+    function dropdown(){
+    var y=document.getElementsByClassName("menu");
+    y[0].classList.toggle("disable");
+        }
+    
+</script>
+</body>
+
+</html>

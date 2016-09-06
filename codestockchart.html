@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<title>Learning CSS</title>
+
+</head>
+
+<body>
+<pre>
+% Script to Retrieve Historical Stock Data from Yahoo Finance from LuminousLogic.com implemented to make and maintain a database by LouisVN 
+ 
+clear all 
+%--------------------------------------------------------------- 
+%Part1: acquire input and information about stored data 
+%Read stock symbols from list 
+symbollistpath='C:\Chart\data\symbollist.txt'; 
+fileID = fopen(symbollistpath); 
+B = textscan(fileID,'%s','Delimiter',';'); 
+fclose(fileID); 
+list=B{:}; %access cell array  
+ 
+while 1 
+prompt1='Press 1 to get or update individual stock data\nPress 2 for update of all stocks in symbol list\n'; 
+choice = input(prompt1); 
+ 
+switch choice 
+  case 1 
+    %Ask user which stock symbol to get or update 
+    prompt2='enter stock symbol: '; 
+    stock_s = {upper(input(prompt2,'s'))}; 
+    break 
+  case 2  
+    stock_s=list;  
+    break 
+  otherwise 
+    disp('Error: Invalid Input')   
+    continue 
+end 
+end 
+ 
+for stock=1:length(stock_s); 
+stock_symbol=stock_s{stock,1}; 
+ 
+% Define starting year (the further back in time, the longer it takes to download) 
+start_year = '1990'; 
+%stock_s=stock_symbol; 
+timeframe='d'; 
+ 
+% Retrieve database file with all previous hist_data 
+filepath=['C:\Chart\data\YH_', stock_symbol, '_',timeframe,'.dly']; 
+filename=['YH_', stock_symbol, '_',timeframe,'.dly']; 
+ 
+% Check if the file already exists 
+dirinfo=dir('C:\Chart\data\'); 
+names={dirinfo.name}; 
+count=0; 
+for name=names 
+  p=strcmp(name{:},filename); 
+  if p==1 
+  count=count+1; 
+  end 
+end 
+ 
+if count &gt; 0  %if file exists read the last date from the file 
+fileID = fopen(filepath); 
+A = textscan(fileID,'%s %f %f %f %f','Delimiter',','); 
+fclose(fileID); 
+C=A{:}; %store dates 
+end 
+%LouisVN 
+%------------------------------------------------------------------ 
+%Part 2 
+%Script to Retrieve Historical Stock Data from Yahoo! Finance 
+%LuminousLogic.com 
+ 
+% Get current date 
+[this_year, this_month, this_day, dummy, dummy] = datevec(date); 
+ 
+% Build URL string 
+url_string = 'http://ichart.finance.yahoo.com/table.csv?'; 
+url_string = strcat(url_string, '&amp;s=', upper(stock_symbol)   ); 
+url_string = strcat(url_string, '&amp;d=', num2str(this_month-1) ); 
+url_string = strcat(url_string, '&amp;e=', num2str(this_day)     ); 
+url_string = strcat(url_string, '&amp;f=', num2str(this_year)    ); 
+%in the following line g= can be set to g=w or g=d for daily or weekly 
+url_string = strcat(url_string, '&amp;g=d&amp;a=0&amp;b=1&amp;c=', start_year); 
+url_string = strcat(url_string, '&amp;ignore.csv'); 
+ 
+ 
+% Open a connection to the URL and retrieve data into a buffer 
+buffer      = java.io.BufferedReader(... 
+              java.io.InputStreamReader(... 
+              openStream(... 
+              java.net.URL(url_string)))); 
+ 
+ 
+% Read the first line (a header) and discard 
+dummy   = readLine(buffer); 
+ 
+ 
+% Read all remaining lines in buffer 
+ptr = 1; 
+while 1 
+    % Read line 
+    buff_line = char(readLine(buffer));  
+    % Break if this is the end 
+    if length(buff_line)&lt;3, break; end 
+    % Find comma delimiter locations 
+    commas    = find(buff_line== ','); 
+    % Extract high, low, open, close, etc. from string 
+    DATEvar   = buff_line(1:commas(1)-1); 
+     
+    % Stop if the database already exists and the most recent date equals 
+    % the last date in the database file (LouisVN) 
+    if count &gt; 0 &amp;&amp; strcmp(DATEvar,C{end,1})==1, break; end 
+         
+    OPENvar   = str2num( buff_line(commas(1)+1:commas(2)-1) ); 
+    HIGHvar   = str2num( buff_line(commas(2)+1:commas(3)-1) ); 
+    LOWvar    = str2num( buff_line(commas(3)+1:commas(4)-1) ); 
+    CLOSEvar  = str2num( buff_line(commas(4)+1:commas(5)-1) ); 
+    VOLvar    = str2num( buff_line(commas(5)+1:commas(6)-1) ); 
+    adj_close = str2num( buff_line(commas(6)+1:end) ); 
+     
+    %Adjust for dividends, splits, etc. 
+    %This part puts every value in the next row every loop 
+     
+    DATEtemp{ptr,1} = DATEvar; 
+    OPENtemp(ptr,1) = OPENvar  * adj_close / CLOSEvar; 
+    HIGHtemp(ptr,1) = HIGHvar  * adj_close / CLOSEvar; 
+    LOWtemp (ptr,1) = LOWvar   * adj_close / CLOSEvar; 
+    CLOSEtemp(ptr,1)= CLOSEvar * adj_close / CLOSEvar; 
+    VOLtemp(ptr,1)  = VOLvar; 
+ 
+    ptr = ptr + 1; 
+end 
+ 
+if ptr &gt; 1 %only do the next part if an update was required or the file did not exits yet (LouisVN) 
+     
+    % Reverse to normal chronological order, so 1st entry is oldest data 
+    % point  
+    hist_date  = flipud(DATEtemp); 
+    hist_open  = num2cell(flipud(OPENtemp)); 
+    hist_high  = num2cell(flipud(HIGHtemp)); 
+    hist_low   = num2cell(flipud(LOWtemp)); 
+    hist_close = num2cell(flipud(CLOSEtemp)); 
+    hist_vol   = num2cell(flipud(VOLtemp)); 
+%%Luminouslogic.com  
+%------------------------------------------------------------------------- 
+%LouisVN  
+%Part 3: Combine all data and write to database 
+ 
+    alldata= [hist_date(:,1) hist_open(:,1) hist_high(:,1) hist_low(:,1) hist_close(:,1)]; 
+     
+    if count &gt; 0    
+    % Add to database by opening a file in append mode (prevents overwriting) 
+    formatSpec='%s,%f,%f,%f,%f\n'; 
+    fileID = fopen(filepath,'a'); 
+    [nrows,ncols] = size(alldata); 
+    %write row by row 
+    for row = 1:nrows 
+        fprintf(fileID,formatSpec,alldata{row,:}); 
+    end 
+    fclose(fileID); 
+    disp ([stock_symbol,' is up to date: ',num2str(ptr-1), ' dates were added']) %notify update was succesfull 
+    end 
+     
+    %In case database ptr=1 and count==0 did not exist yet create database by opening a new file and write the stockdata 
+    if count==0 
+    fileID = fopen(filepath,'w'); 
+    formatSpec = '%s,%f,%f,%f,%f\n'; 
+    [nrows,ncols] = size(alldata); 
+    for row = 1:nrows 
+    fprintf(fileID,formatSpec,alldata{row,:}); 
+    end 
+    fclose(fileID); 
+    disp ([stock_symbol, ' is up to date: ',num2str(ptr-1), ' dates were added']) %notify update was succesfull 
+    end 
+else 
+    disp([stock_symbol,' is up to date: ', num2str(ptr-1), ' dates were added']) %notify database was up to date 
+end 
+end 
+ 
+ 
+while 1 
+if choice==1 
+   %check if symbol is already present in the list of stock symbols  
+   count1=0;  
+    for i=1:length(list) 
+       c=strcmp(list{i,1},stock_symbol); 
+    if c==1 
+     count1=count1+1; 
+    end   
+    end 
+     
+    if count1 &gt;0; break,end; %skip if stock is already in symbol list 
+    %ask to add stock symbol to stocklist 
+    prompt3='Symbol not yet in symbol list. Add to list for future updating? (y/n) '; 
+    answer= lower(input(prompt3,'s')); 
+    switch answer 
+        case 'y' 
+        fileID = fopen(symbollistpath,'a'); 
+        formatSpec1 = '%s;'; 
+        fprintf(fileID,formatSpec1,stock_symbol); %add symbol to stocklist 
+        fclose(fileID); 
+        disp('Symbol successfully added to list') 
+          break 
+        case 'n' 
+          break 
+        otherwise 
+         disp('Error: Invalid Input')  
+          continue   
+    end 
+else 
+    break 
+end 
+end 
+ 
+%%LouisVN 
+ 
+ 
+ 
+ 
+</pre>    
+    
+</body>
+
+</html>
+

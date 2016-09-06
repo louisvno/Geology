@@ -1,0 +1,22 @@
+#mainabout{
+  margin-left:200px;
+    background-color: #e2dfb7;
+    height:2000px;
+    margin-top:0px;
+    overflow:hidden;
+    
+}
+
+#insertimg{
+     display:block;
+    height:300px;
+    width:1000px;
+    background-color: darkseagreen;
+}
+
+@media only screen and (max-width: 768px) {
+    
+#mainabout{
+   margin-left:0px;
+    }
+}

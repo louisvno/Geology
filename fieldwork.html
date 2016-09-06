@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<title>Learning CSS</title>
+<link rel="stylesheet" type="text/css" href="styles\style.css">
+<link rel="stylesheet" type="text/css" href="styles\fieldwork.css">
+<link rel="stylesheet" type="text/css" href="styles\navwork.css">
+<link rel="stylesheet" type="text/css" href="styles\modalfw.css">
+</head>
+
+<body>
+
+<div id="supermain">
+    
+<div id="left-menu" class="menu">
+    <ul class="mainmenu">
+    <li><a href="index.html">home</a></li>
+     <li><a href="aboutme.html">about me</a></li>
+     <li><a href="mywork.html">work</a></li>
+     <li><a href="contact.html">contact</a></li>
+     <li><a href="links.html">links</a></li>
+
+    </ul>
+</div>
+
+
+<div id="mainfieldwork">
+    
+    <div id="menu-icon" onclick="dropdown()">
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    <div class="icon-bar"></div>
+    </div>
+    
+<img id="capdec" src="Images\banner_img\capdecreussmall.jpg">
+    
+<div id="navwork">
+    <a href="bscthesis.html">BSc Thesis</a>
+    <a href="mscthesis.html">MSc Thesis</a>
+    <a class="active" href="fieldwork.html">Fieldwork</a>
+    <a href="progmod.html">Programming</a>
+  </div>
+   
+   
+<div class="work-article">
+    <h2 class="h2work">Msc. thesis fieldwork </h2>
+    <hr>
+    <ul class="field-work">
+        <li class="field-work">&ndash; Location: Sorbas (Almeria)</li>
+        <li class="field-work">&ndash; Duration: 4 weeks</li>
+        <li class="field-work">&ndash; Summary: High resolution logging of turbidites section both sedimentology and structural.</li>
+    </ul>
+    <div class="fwgallery">
+        
+        <img class="sorbasmsc" id="fold" onclick="callimg(this.id, this.src)" src="Images\thumbs\fold_thumb.jpg" width="200px" > 
+        <img class="sorbasmsc" id="coarse" onclick="callimg(this.id, this.src)" src="Images\thumbs\coarse_thumb.jpg" width="200px" >
+        <img class="sorbasmsc" id="turbidites" onclick="callimg(this.id, this.src)" src="Images\thumbs\Turbidites_thumb.jpg" width="200px"> 
+        <img class="sorbasmsc" id="coarse" onclick="callimg(this.id, this.src)" src="Images\thumbs\coarse_thumb.jpg" width="200px" > 
+    </div>
+</div>
+
+<div class="work-article">
+    <h2 class="h2work">4th year fieldwork </h2>
+        <hr>
+    <ul class="field-work">
+      <li class="field-work">&ndash; Location: Sorbas (Almeria)</li>
+      <li class="field-work">&ndash; Duration: 4 weeks</li>
+      <li class="field-work">&ndash; Summary: large scale structural and sedimentary analysis and mapping of the Sorbas basin.</li>
+    </ul>
+        <div class="fwgallery">
+        <img class="sorbasfw" id="tortonian" onclick="callimg(this.id, this.src)" src="Images\thumbs\tortonian_thumb.jpg" width="200px" alt="Tortonian turbidites"> 
+        <img class="sorbasfw" id="overview" onclick="callimg(this.id, this.src)" src="Images\thumbs\overview_thumb.jpg" width="200px" >
+        <img class="sorbasfw" id="overview2" onclick="callimg(this.id, this.src)" src="Images\thumbs\overview2_thumb.jpg" width="200px" > 
+        <img class="sorbasfw" id="gypsum" onclick="callimg(this.id, this.src)" src="Images\thumbs\gypsum_thumb.jpg" width="200px" >
+    </div></div>
+
+<div class="work-article">
+   <h2 class="h2work">2nd year fieldwork</h2>
+    <hr>  
+    <ul class="field-work">
+      <li class="field-work">&ndash; Location: Catalan Pyrenees</li>
+      <li class="field-work">&ndash; Duration: 6 weeks</li>
+      <li class="field-work">&ndash; Summary: Structure of the pyrenees structural mapping at Camarasa sedimentological mapping in the Tremp basin</li>
+      <li class="field-work"> excursion in Sort internal pyrenees structural and metamorphic mapping in Cadaques Cap de Creus.</li>
+    </ul>
+        <div class="fwgallery">
+        <img class="scndyrfw" id="intrusion" onclick="callimg(this.id, this.src)" src="Images\thumbs\intrusion_thumb.jpg" width="200px" > 
+        <img class="scndyrfw" id="crossbed" onclick="callimg(this.id, this.src)" src="Images\thumbs\crossbed_thumb.jpg" width="200px" >
+        <img class="scndyrfw" id="internal" onclick="callimg(this.id, this.src)" src="Images\thumbs\internal_thumb.jpg" width="200px" > 
+        <img class="scndyrfw" id="yesos" onclick="callimg(this.id, this.src)" src="Images\thumbs\yesos_thumb.jpg" width="200px" > 
+        </div></div>
+
+    
+    
+<div class="work-article">
+    <h2 class="h2work">1st year fieldwork</h2>
+    <hr>
+    <ul class="field-work">
+      <li class="field-work">&ndash; Location: Aliaga </li>
+      <li class="field-work">&ndash; Duration: 4 weeks</li>
+      <li class="field-work">&ndash; Summary: Drinking beer eating risotto</li>
+    </ul>
+        <div class="fwgallery">
+        <img  class="firstyrfw" id="fold" onclick="callimg(this.id, this.src)" src="Images\thumbs\fold_thumb.jpg" width="200px" > 
+        <img  class="firstyrfw" id="coarse" onclick="callimg(this.id, this.src)" src="Images\thumbs\coarse_thumb.jpg" width="200px" >
+        <img  class="firstyrfw" id="coarse" onclick="callimg(this.id, this.src)" src="Images\thumbs\coarse_thumb.jpg" width="200px" > 
+        <img  class="firstyrfw" id="coarse" onclick="callimg(this.id, this.src)" src="Images\thumbs\coarse_thumb.jpg" width="200px" >
+        </div></div>
+    
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- The Close Button -->
+<span class="close" onclick="closeModal()">&times;</span>
+
+<div id="modal-wrap">
+    
+    <div id="img-wrap">
+        <img class="modal-content" id="img01">
+    </div>
+  
+
+    <div id="caption-wrap">
+    
+    </div>
+    
+    <div id="thumb-wrap">
+        
+        <img class="modal-thumb" id="th01" onclick="callimg(0, this.src)">
+        <img class="modal-thumb" id="th02" onclick="callimg(0, this.src)">
+        <img class="modal-thumb" id="th03" onclick="callimg(0, this.src)">
+        <img class="modal-thumb" id="th04" onclick="callimg(0, this.src)">
+            
+    </div>
+   
+    
+</div>
+    
+</div>
+<!-- End Modal-->
+
+
+</div> 
+
+</div>
+ 
+    
+    
+<script> 
+    
+// Get the modal
+var modal = document.getElementById('myModal');
+var modalImg= document.getElementById("img01");
+
+
+function callimg(clicked_id, clicked_src){
+    
+    var hiRes = clicked_src;
+    var srcCheck = clicked_id;
+    
+    hiRes = hiRes.replace("/thumbs/","/fieldworkhires/");//edit thumb url to hi-res url
+    hiRes = hiRes.replace("_thumb",""); //edit thumb url to hi-res url
+    modalImg.src = hiRes; //set modalImg src to hiRes url
+    
+       
+if (srcCheck != 0 ){ //if condition to skip this part once modal is open, sets up the thumbnails but if clicked again, clicked ID is set to 0 and loop will not run.
+    
+    var clickedThumb= document.getElementById(clicked_id);
+    var thumbsMain = document.getElementsByClassName(clickedThumb.className); //get thumbs from mainpage
+    var thumbsModal=document.getElementsByClassName("modal-thumb"); // get modal thumbs
+     
+        
+    //for loop to set src in modal thumb-class to thumbnail img src
+     for(var i=0;i < thumbsMain.length; i++){
+            thumbsModal[i].src = thumbsMain[i].src;
+        }   
+        
+    modal.style.display = "block"; //make modal window visible  
+    }  
+    
+
+} //function callimg end
+
+    
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+    
+// When the user clicks on <span> (x), close the modal (edits css)
+function closeModal() { 
+    
+    modal.style.display = "none";
+}
+
+
+</script>
+<script>
+    var count=0;
+        
+    function dropdown(){
+    var y=document.getElementsByClassName("menu");
+    y[0].classList.toggle("disable");
+        }
+    
+</script>    
+</body>
+
+</html>

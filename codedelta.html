@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<title>Learning CSS</title>
+
+</head>
+
+<body>
+<pre>
+%Delta progradation model
+%Louis vN
+
+%Initialization
+clear all 
+close all
+
+%input variables
+Gtf=11.5*10^6; %sediment transport ton/yr
+Qs=Gtf/(1.65+1);% m3/yr volume sediment
+alpha=0.086;   %angle of repose
+
+%parameters for shape of the bathymetry
+%Tolle profile (n=4 a=1E-16)
+%Pila profile (n=2 a=1.2E-7)
+n=4;
+a=1.0*10^-16; 
+
+%   Parameters for discretisation in space:
+d=30;                    % Basin depth (m) 
+dz = 0.001;               % Spatial step (m)
+Nz = d/dz;                % Number of spatial steps
+
+%Progradation steps
+r=10000;   %total progradation distance (m)
+dr=100;    %progradation step (m)
+Nr=r/dr; %number of progradation steps (m)
+
+%Initialization of variables
+z=zeros(Nz+1,1);
+ibp=zeros(Nz+1,1);
+slope=zeros(Nz+1,1);
+p=zeros(Nr,1);
+progslopes=zeros(Nz+1,Nr);
+dx=zeros(Nz+1,Nr);
+theta=zeros(Nz+1,Nr);
+volume=zeros(Nz+1,Nr);
+radius=zeros(Nz+1,Nr);
+imh=zeros(1,Nr);
+
+%Creating the initial bathymetry z-axis=vertical x-axis horizontal
+for nz=1:Nz+1                     
+    z(nz)=dz*(nz-1);              %setting z (vertical) steps     
+    ibp(nz)= (z(nz)/a).^(1/n);    %initial basin profile (ibp) x values (calculate x for every z step)
+end
+
+%Initial condition = point at current coastline (intersection
+%Bathymetry/waterdepth)
+initslopex=(z(Nz+1)/a).^(1/n);   %find x coordinate start point (intersection waterdepth and bathymetry)
+z1=d;                            %z coordinate start point (equals waterdepth)
+
+%Creating the delta slope
+for nz=1:Nz+1
+slope(nz)=(z(nz)-z1)/alpha+initslopex; %x coordinates of the delta slope
+end
+
+%Creating the progradation frame (shifting of the delta slope for every step)
+for nr=1:Nr                     
+    p(nr)=dr*(nr);                %setting progradation steps 
+    progslopes(:,nr)=slope-p(nr); %x coordinates of progradation slope of every step 
+    
+end
+
+%x(profile)-x(delta slope)
+for nr=1:Nr
+dx(:,nr)=ibp-progslopes(:,nr); %length of linepiece needed for circle segment calculation
+end
+
+%cut-off the negative values (='below the seabottom')
+for nr=1:Nr
+for nz=1:Nz+1
+if dx(nz,nr)<0
+   dx(nz,nr)=0;
+end    
+end 
+end
+
+%match z values for every dx that is positive
+hz=zeros(Nz+1,Nr);
+for nr=1:Nr
+for nz=1:Nz+1
+if dx(nz,nr)>0
+hz(nz,nr)=(z(nz));
+end
+end
+end
+
+%Calculate the radius (m) of the circle at every z (vertical) step
+radius=initslopex-progslopes;
+
+% Calculate volume in every progradation step
+for nr=1:Nr
+for nz=1:Nz+1
+if radius(nz,nr)>0
+theta(nz,nr)=((radius(nz,nr)-(dx(nz,nr))))/radius(nz,nr);    
+theta(nz,nr)=2*acos(theta(nz,nr));                          %angle of circle segment
+volume(nz,nr)=((radius(nz,nr)^2)/2)*((theta(nz,nr))-sin((theta(nz,nr))))*dz; %area circle segment*dz=volume
+end
+end
+end
+
+progstepvolume=zeros(Nr,1);
+progstepvolume2=zeros(Nr,1);
+
+for nr=1:Nr
+progstepvolume(nr,1)=sum(volume(:,nr)); %calculate total volume of progradation step
+end
+
+progstepvolume2(1,1)=progstepvolume(1,1);
+
+for nr=2:Nr
+progstepvolume2(nr,1)=progstepvolume(nr,1)-progstepvolume(nr-1,1); %calculate total volume of progradation step
+end
+
+%Calculate the time it takes with the sediment discharge to fill the volume
+%of each pogradation step
+
+time=progstepvolume2/Qs; %time in years
+timecumul=cumsum(time);
+totalvolum=sum(progstepvolume2);
+
+%plot graphs
+figure(1) , plot(ibp,z); %plot basin bathymetry
+hold on, plot(progslopes,z);
+title('Initial bathymetry')
+xlabel('Distance (m)') % x-axis label
+ylabel('Height of water column (m)') % y-axis label
+
+figure(2), plot(((timecumul)),(p)) %plot time in years vs progradation distance
+title('Delta progradation over time')
+xlabel('Time (years)') % x-axis label
+ylabel('Delta proggradation distance (m)') % y-axis label
+
+</pre>    
+    
+</body>
+
+</html>
