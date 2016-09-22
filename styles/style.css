@@ -6,7 +6,7 @@ body{background-color: dimgrey;
 }
 
 #supermain{
-    max-width:1200px;
+    max-width:1050px;
     min-width:800px;
     margin:auto;
 }
@@ -87,8 +87,9 @@ width:100%;
 max-width:500px;
 margin:auto;
 display:block;
-visibility:hidden;
-   
+/* visibility:hidden; */
+opacity:0.0;  
+transition: opacity .5s ease-out;  
 /*opacity:0.0;*/
 /*transition: opacity 5s;*/
 
@@ -96,7 +97,7 @@ visibility:hidden;
 
 /*#cliff:hover{
     opacity:1.0;
-    transition: opacity .3s ease-out;
+    
 }*/
 
 #this{
