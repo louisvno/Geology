@@ -19,12 +19,6 @@ li.field-work{
     
 }
 
-#capdec{
-    display: block;
-    height:300px;
-    width:1000px;
-}
-
 .work-article img{cursor:zoom-in;
     display:inline-block;
     width:23%
@@ -38,10 +32,7 @@ li.field-work{
     #mainfieldwork{
    margin-left:0px;
     }
-    #capdec{
-        width:100%;
-        height:auto;
-    }
+
     .work-article img{cursor:zoom-in;
     display:inline-block;
     width:49%;

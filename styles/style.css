@@ -31,6 +31,7 @@ ul.mainmenu {
     margin-top:200px;
 
 }
+ul {font-family: "Calibri";}
 
 #left-menu li{
     margin-bottom: 30px;
@@ -264,6 +265,11 @@ color:  #b3673c
         display:none;
     background-color: rgb(211,180,162);}
 
+.banner-img{
+    display:block;
+    height:300px;
+    width:850px;
+}
 
 @media only screen and (max-width: 768px){
 
@@ -289,7 +295,9 @@ color:  #b3673c
 ul.mainmenu {
     font-size: 14pt;
     margin-top:0px;
-    }   
+    }  
+    
+    
 #supermain{
     width:100%;
     min-width:0;
@@ -339,9 +347,11 @@ ul.mainmenu {
     margin-right:0;
     margin-top:0;
     margin-bottom:10px;
-    
     }
-    
+.banner-img{
+        width:100%;
+        height:auto;
+    }
 /*menu icon for small screens*/
 #menu-icon{
     height:45px;

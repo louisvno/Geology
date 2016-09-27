@@ -1,16 +1,10 @@
 #mainmsc{
-  margin-left:200px;
-  background-color: #e2dfb7;
-    
- overflow:hidden;
+    margin-left:200px;
+    background-color: #e2dfb7;
+    overflow:hidden;
 }
 
-#cuesta{
-    display:block;
-    height:300px;
-    width:1000px;
-    
-}
+
 #t49{
     display:block;
     margin-left:5%;
@@ -20,19 +14,14 @@
     
     
 }
-    
-    
+       
 @media only screen and (max-width: 768px) {
      
     
     #mainmsc{
-   margin-left:0px;
+        margin-left:0px;
     }
-    #cuesta{
-        width:100%;
-        height:auto;
-    }
-    
+
 }
 
 
